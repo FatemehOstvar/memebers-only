@@ -1,1 +1,6 @@
-const pool = require('../db/pool');
+const { addMessage, getAllMessages } = require('../db/queries');
+
+module.exports = {
+  addMessage,
+  getAllMessages,
+};

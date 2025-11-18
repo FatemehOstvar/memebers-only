@@ -46,16 +46,30 @@ async function getAllMessageContent() {
 }
 
 // 5. View all message content *and date*
+// async function getAllMessages() {
+//   const result = await pool.query(
+//     `SELECT message_id, content, creationDate, user_id
+//        FROM messages JOIN users_messages ON messages.message_id = users_messages.message_id
+//        ORDER BY creationDate DESC`
+//   );
+//
+//   return result.rows;
+// }
+
 async function getAllMessages() {
   const result = await pool.query(
-    `SELECT content, creationDate
-       FROM messages
-       ORDER BY creationDate DESC`
+    `SELECT
+    m.message_id, m.content,
+    m.creationDate, u.firstName,
+    u.lastName, u.roleName
+    FROM users AS u
+    JOIN users_messages AS um ON u.id = um.user_id JOIN messages AS m
+    ON um.message_id = m.message_id
+    ORDER BY creationDate DESC;`
   );
 
   return result.rows;
 }
-
 // 6. Upgrade role (spectator → user)
 async function upgradeRole(userId) {
   const result = await pool.query(

@@ -8,7 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-<p>sign up</p>
-<a href="/">Already have an account?</a>
+<div><p>sign up</p>
+    <form action="/sign-up">
+        <label>username
+            <input type="text" name="username">
+        </label>
+        <label>Name
+            <input type="text" name="name">
+        </label>
+        <label>Last name
+            <input type="text" name="lastname">
+        </label>
+        <label>Password
+            <input type="text" name="password">
+        </label>
+    <button type="submit">Submit</button>
+    </form>
+</div>
+<a href="/login">Already have an account?</a>
 </body>
 </html>

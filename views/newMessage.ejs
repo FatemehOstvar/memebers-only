@@ -9,6 +9,7 @@
     <title>Document</title>
 </head>
 <body>
+<%- include('partials/error') %>
 <%const role = req.user.rolename%>
 <%if(role !== 'spectator'){%>
 <form action="/<%role%>/newMessage" method="post">

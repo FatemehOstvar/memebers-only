@@ -6,15 +6,17 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
      <link rel="stylesheet" href="./styles.css">
+
     <title>Document</title>
 </head>
 <body>
+<%- include('partials/error') %>
 <div><p>sign up</p>
-    <form action="/sign-up">
+    <form action="/sign-up" method="post">
         <label>username
             <input type="text" name="username">
         </label>
-        <label>Name
+        <label>first name
             <input type="text" name="name">
         </label>
         <label>Last name
